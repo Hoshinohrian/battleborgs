@@ -15,6 +15,14 @@
 
           
           this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
+
+          this.load.image('player', 'assets/player.png');
+          this.load.image('opp', 'assets/opp.png');
+          this.load.image('item', 'assets/item.png');
+          this.load.image('bg', 'assets/bg.png');
+          this.load.image('money', 'assets/money.png');
+          
+         
       }
       , create: function () {
           this.asset.cropEnabled = false;
