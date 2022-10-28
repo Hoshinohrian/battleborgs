@@ -117,7 +117,7 @@ item[11].priority = 0
 item[11].armor = 0
 item[11].damage = 0
 item[11].health = 3
-item[3].partType = 3
+item[11].partType = 3
 
 item[12] = new Object();
 item[12].name = "Spark Blaster"
