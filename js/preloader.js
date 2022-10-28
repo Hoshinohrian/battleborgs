@@ -21,6 +21,8 @@
           this.load.image('item', 'assets/item.png');
           this.load.image('bg', 'assets/bg.png');
           this.load.image('money', 'assets/money.png');
+          this.load.image('detail', 'assets/detail.png');
+          this.load.image('button', 'assets/1-38.png');
           
          
       }
