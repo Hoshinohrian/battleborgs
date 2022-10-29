@@ -23,7 +23,11 @@
           this.load.image('money', 'assets/money.png');
           this.load.image('detail', 'assets/detail.png');
           this.load.image('button', 'assets/1-38.png');
-          
+          this.load.image('falconHelm_icon', 'assets/HakkeHelmet_Icon.png');
+          this.load.image('raidCore_icon', 'assets/HakkeCore_Icon.png')
+          this.load.image('ravenCore_icon', 'assets/RavenCore_Icon.png');
+          this.load.image('sparkCore_icon', 'assets/SparkCore_Icon.png');
+          this.load.image('scepter_icon', 'assets/Scepter_Icon.png');
          
       }
       , create: function () {

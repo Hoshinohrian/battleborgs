@@ -68,21 +68,32 @@
           this.item = []
           var dist = -100;
           for(var i = 0; i < 3; i++){
-            this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, 'item');
-            this.item[i].anchor.setTo(0.5, 0.5);
             //this.item[i].itemType = Math.floor(Math.random() * 4);
             var itemPiece = Math.floor(Math.random() * 4);
+            var icon;
             switch(itemPiece){
               case 0:
+                icon = 'raidCore_icon';
+                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 3;
                 break;
               case 1:
+                icon = 'ravenCore_icon';
+                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 7;
                 break;
               case 2:
+                icon = 'sparkCore_icon';
+                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 11;
                 break;
               case 3:
+                icon = 'scepter_icon';
+                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 15;
                 break;                
             }            
