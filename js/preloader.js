@@ -17,6 +17,19 @@
           this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
 
           this.load.image('player', 'assets/player.png');
+
+          this.load.image('player_stand', 'assets/player_stand.png');
+          this.load.image('player_stand', 'assets/player_slash.png');
+          this.load.image('player_stand', 'assets/player_staff.png');  
+          this.load.image('player_stand', 'assets/player_shoot.png');  
+
+          for(var i = 0; i < 16; i++){
+            this.load.image('item'+i, 'assets/item'+i+'.png');
+          }
+          
+
+          this.load.image('refresh', 'assets/refresh.png');  
+
           this.load.image('opp', 'assets/opp.png');
           this.load.image('item', 'assets/item.png');
           this.load.image('bg', 'assets/bg.png');
@@ -28,7 +41,8 @@
           this.load.image('ravenCore_icon', 'assets/RavenCore_Icon.png');
           this.load.image('sparkCore_icon', 'assets/SparkCore_Icon.png');
           this.load.image('scepter_icon', 'assets/Scepter_Icon.png');
-         
+
+
       }
       , create: function () {
           this.asset.cropEnabled = false;

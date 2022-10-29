@@ -60,7 +60,7 @@
           this.fightButtonText = this.add.text(this.fightButton.x, this.fightButton.y, "", style);     
           this.fightButtonText.anchor.setTo(0.5, 0.5);         
 
-          this.rerollButton = this.add.sprite(x-100, this.game.height-50-40, 'item');
+          this.rerollButton = this.add.sprite(x-100, this.game.height-50-40, 'refresh');
           this.rerollButton.anchor.setTo(0.5, 0.5);
           this.rerollButton.inputEnabled = true;
           this.rerollButton.events.onInputDown.add(this.reroll, this);   
@@ -69,30 +69,31 @@
           var dist = -100;
           for(var i = 0; i < 3; i++){
             //this.item[i].itemType = Math.floor(Math.random() * 4);
+            this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, "item");
             var itemPiece = Math.floor(Math.random() * 4);
             var icon;
             switch(itemPiece){
               case 0:
                 icon = 'raidCore_icon';
-                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                //this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
                 this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 3;
                 break;
               case 1:
                 icon = 'ravenCore_icon';
-                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                //this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
                 this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 7;
                 break;
               case 2:
                 icon = 'sparkCore_icon';
-                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                //this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
                 this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 11;
                 break;
               case 3:
                 icon = 'scepter_icon';
-                this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
+                //this.item[i] = this.add.sprite(x+dist, this.game.height+ 50, icon);
                 this.item[i].anchor.setTo(0.5, 0.5);
                 this.item[i].itemVal = 15;
                 break;                
@@ -108,7 +109,10 @@
 
           this.unitSelected = null;
           
-          this.player = this.add.sprite(this.map.x, this.map.y-15, 'player');
+          this.player = this.add.sprite(this.map.x, this.map.y-15, 'player_stand');
+          this.player.animations.add('stand');
+          this.player.animations.play('stand', 20, true);
+      
           this.playerDamage = 0;
           this.playerArmorDamage = 0;    
 
@@ -117,37 +121,46 @@
           this.player.item = []
           this.player.health = 1;
           this.player.damage = 1;
-          this.player.item[0] = new Object();
+          this.player.item[0] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
+          this.player.item[0].anchor.setTo(0.5, 0.5);
+          this.player.item[0].alpha = 0;
           this.player.item[0].priority = 0;
           this.player.item[0].armor = 0;
           this.player.item[0].damage = 0;
           this.player.item[0].health = 0;
           this.player.item[0].itemVal = 0;
 
-          this.player.item[1] = new Object();
+          this.player.item[1] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
+          this.player.item[1].anchor.setTo(0.5, 0.5);
+          this.player.item[1].alpha = 0;
           this.player.item[1].priority = 0;
           this.player.item[1].armor = 0;
           this.player.item[1].damage = 0;
           this.player.item[1].health = 0;
           this.player.item[1].itemVal = 0;
 
-          this.player.item[2] = new Object();
+          this.player.item[2] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
+          this.player.item[2].anchor.setTo(0.5, 0.5);
+          this.player.item[2].alpha = 0;          
           this.player.item[2].priority = 0;
           this.player.item[2].armor = 0;
           this.player.item[2].damage = 0;
           this.player.item[2].health = 0;
           this.player.item[2].itemVal = 0;
 
-          this.player.item[3] = new Object();
+          this.player.item[3] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
+          this.player.item[3].anchor.setTo(0.5, 0.5);
+          this.player.item[3].alpha = 0;
           this.player.item[3].priority = 0;
           this.player.item[3].armor = 0;
           this.player.item[3].damage = 0;
           this.player.item[3].health = 0;
           this.player.item[3].itemVal = 0;
 
-          this.opp = this.add.sprite(this.map.x+45, this.map.y-15, 'player');
+          this.opp = this.add.sprite(this.map.x+45, this.map.y-15, 'player_stand');
           this.opp.anchor.setTo(0.5, 0.5);        
-          this.opp.alpha = 0;  
+          this.opp.alpha = 0; 
+          this.opp.scale.x = -1; 
           
           this.oppDamage = 0;
           this.oppArmorDamage = 0;
@@ -258,6 +271,11 @@
           this.playerArmorDamage = 0;  
           this.oppDamage = 0;
           this.oppArmorDamage = 0;
+
+          this.player.item[0].x = this.player.x
+          this.player.item[1].x = this.player.x
+          this.player.item[2].x = this.player.x
+          this.player.item[3].x = this.player.x
 
           //reset oppononet
           for(var i = 0; i < 4; i++){
@@ -469,6 +487,11 @@
             this.player.x += (this.map.x-45 - this.player.x) * 0.5; 
             this.opp.x += (this.map.x+45 - this.opp.x) * 0.5; 
           }
+
+          this.player.item[0].x = this.player.x
+          this.player.item[1].x = this.player.x
+          this.player.item[2].x = this.player.x
+          this.player.item[3].x = this.player.x
 
           this.opp.alpha += (1 - this.opp.alpha) * 0.1;  
 
@@ -719,7 +742,8 @@
         this.unitSelected = unit;
         this.itemSelected = true;
         this.itemDesc.text = "\n--------------------------------\n******* PART DETAILS *******\n--------------------------------\n"+"NAME: "+item[unit.itemVal].name+"\n"+"BRAND: "+item[unit.itemVal].brand+"\n"+"PRICE: "+item[unit.itemVal].price+"\n--------------------------------\n*********** STATS ***********\n--------------------------------\n"+"PRI: +"+item[unit.itemVal].priority+"                        "+"ARM: +"+item[unit.itemVal].armor+"\n"+"DMG: +"+item[unit.itemVal].damage+"                     "+"HP: +"+item[unit.itemVal].health
-        
+        this.player.item[item[this.unitSelected.itemVal].partType].alpha = 1;
+        this.player.item[item[this.unitSelected.itemVal].partType].loadTexture("item"+this.unitSelected.itemVal)
 
       }
           
