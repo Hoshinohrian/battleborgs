@@ -21,7 +21,7 @@
           this.map = this.add.sprite(x, y, 'bg');
           this.map.anchor.setTo(0.5, 0.5);
 
-          this.moneyValue = 20;
+          this.moneyValue = 5;
           this.moneyValueHolder = this.moneyValue;
           this.moneyUI = this.add.sprite(25, 25, 'money');
           this.moneyUI.anchor.setTo(0.5, 0.5);  
