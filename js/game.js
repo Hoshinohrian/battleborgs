@@ -21,13 +21,18 @@
           this.map = this.add.sprite(x, y, 'bg');
           this.map.anchor.setTo(0.5, 0.5);
 
-          this.moneyValue = 5
-          this.moneyValueHolder = this.moneyValue
+          this.moneyValue = 20;
+          this.moneyValueHolder = this.moneyValue;
           this.moneyUI = this.add.sprite(25, 25, 'money');
           this.moneyUI.anchor.setTo(0.5, 0.5);  
           var style = { font: '16pt Muli', fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 290 };
           this.moneyUIText = this.add.text(this.moneyUI.x+35, this.moneyUI.y, this.moneyValue, style);    
-          this.moneyUIText.anchor.setTo(0.5, 0.5);     
+          this.moneyUIText.anchor.setTo(0.5, 0.5);  
+          
+          this.winCounter = 0;
+          this.winCounterHolder = this.winCounter;
+          this.winUIText = this.add.text(60, 50, "Wins: " + this.winCounter, style);
+          this.winUIText.anchor.setTo(0.5, 0.5);
 
           this.itemSelected = false
           style = { font: '12pt Muli', fill: 'white', align: 'left', wordWrap: true, wordWrapWidth: 300 };
@@ -588,10 +593,14 @@
             if(opphealth <= 0){
               alert("player WON")
               this.moneyValue += 2
+              this.winCounter ++;
+              this.winUIText.text = "Wins: " + this.winCounter
             }
             else{
               alert("player lost")
               this.moneyValue += 1
+              this.winCounter = 0;
+              this.winUIText.text = "Wins: " + this.winCounter
             }
 
             this.phase = 0;
