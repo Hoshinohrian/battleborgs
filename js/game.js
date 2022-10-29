@@ -133,7 +133,7 @@
           this.player.item[0].armor = 0;
           this.player.item[0].damage = 0;
           this.player.item[0].health = 0;
-          this.player.item[0].itemVal = 0;
+          this.player.item[0].itemVal = -1;
 
           this.player.item[1] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
           this.player.item[1].anchor.setTo(0.5, 0.5);
@@ -142,7 +142,7 @@
           this.player.item[1].armor = 0;
           this.player.item[1].damage = 0;
           this.player.item[1].health = 0;
-          this.player.item[1].itemVal = 0;
+          this.player.item[1].itemVal = -1;
 
           this.player.item[2] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
           this.player.item[2].anchor.setTo(0.5, 0.5);
@@ -151,7 +151,7 @@
           this.player.item[2].armor = 0;
           this.player.item[2].damage = 0;
           this.player.item[2].health = 0;
-          this.player.item[2].itemVal = 0;
+          this.player.item[2].itemVal = -1;
 
           this.player.item[3] = this.add.sprite(this.player.x, this.player.y, 'player_stand');
           this.player.item[3].anchor.setTo(0.5, 0.5);
@@ -160,7 +160,7 @@
           this.player.item[3].armor = 0;
           this.player.item[3].damage = 0;
           this.player.item[3].health = 0;
-          this.player.item[3].itemVal = 0;
+          this.player.item[3].itemVal = -1;
 
           this.opp = this.add.sprite(this.map.x+45, this.map.y-15, 'player_stand');
           this.opp.anchor.setTo(0.5, 0.5);        
@@ -472,6 +472,17 @@
           }
         }
         else{
+          for(var i =0; i< 4; i ++){
+            try{
+              this.player.item[i].loadTexture("item"+this.player.item[i].itemVal)
+              this.player.item[i].alpha = 1;
+            } 
+            catch(e){
+              this.player.item[i].alpha = 0;
+            }
+            
+          }
+
           this.rerollButton.alpha = 0;
           console.log(this.attackTimer)
           if(this.turnOrder == 1){

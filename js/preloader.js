@@ -23,7 +23,7 @@
           this.load.image('player_stand', 'assets/player_staff.png');  
           this.load.image('player_stand', 'assets/player_shoot.png');  
 
-          for(var i = 0; i < 16; i++){
+          for(var i = -1; i < 16; i++){
             this.load.image('item'+i, 'assets/item'+i+'.png');
           }
           
